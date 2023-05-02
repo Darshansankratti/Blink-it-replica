@@ -10,6 +10,21 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<script>
+    function phoneNumberCheck(phoneNumber)
+    {
+       var regEx = /^(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/
+       if(phoneNumber.value.match(regEx))
+         {
+            alert("login succesful");
+         }
+       else
+         {
+         alert("Please enter a valid phone number.");
+         return false;
+         }
+    }
+ </script>
 </head>
 <body>
     <nav class="navbar navbar-expand bg-light border"> 
@@ -19,12 +34,35 @@
            <div><h6>Delivery in 15 minutes</h6> <h6 class="blockquote-footer p-2">kumarswamy layout bangalore </h6></div> 
                 <form class="d-flex">
                    <input class="form-control me-1" size="80" type="text" placeholder="Search">
-                   <button class="btn btn-primary me-2" type="button">Login</button>
+                  <button class="btn btn-primary me-2"  type="button" data-bs-toggle="modal" data-bs-target="#myModal">Login</button>
                    <button class=" btn btn-success">cart</button>
                 </form>
         
         </div>
     </nav>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <div class="modal-header">
+              <h4 class="modal-title text-secondary"  >Mobile Number Verification</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            
+            <div class="modal-body">
+                <form name="form1" action="#"> 
+                   <h6>Enter your phone number to login</h6>
+                    <input type='text' name='phone'/></br></br>
+                    <input type="submit" class="btn btn-danger" name="submit" value="Submit" 
+                    onclick="phoneNumberCheck(document.form1.phone)"/>
+                    </form>
+            </div>
+      
+        </div>
+        </div>
+    </div>
+    
     
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
